@@ -1,0 +1,240 @@
+
+{% load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="favicon.png" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" href="{% static 'fonts/icomoon/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <title>
+
+    </title>
+  </head>
+  <body>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="/" class="logo m-0 float-start">
+              <img class="img" src="{% static 'images/tkp.jpg' %}" style="width:80px; height:55px; mix-blend-mode:multiply;" >
+            </a>
+            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+              <li class="active"><a href="/">Home</a></li>
+              {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Sign up</a></li>
+              {% elif user.user_type == "owner" %}
+                  <li><a href="{% url 'profile'%}">My Profile </a></li>
+              {% else %}
+                <li><a href="{% url 'logout'%}">Logout</a></li>
+              {% endif %}
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="hero page-inner overlay"
+      style="background-image: url('images/hero_bg_3.jpg')"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">
+              {{ house.name }}
+            </h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'properties' %}">Properties</a>
+                </li>
+                <li class="breadcrumb-item active text-white-50" aria-current="page">
+                  {{ house.name }}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-7">
+            <div class="img-property-slide-wrap">
+              <div class="img-property-slide">
+                <img src="{{ house.image.url }}" alt="Image" class="img-fluid" />
+                <img src="{{ house.image2.url }}" alt="Image" class="img-fluid" />
+                <img src="{{ house.image3.url }}" alt="Image" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h2 class="heading text-primary">{{ house.name }}</h2>
+            <p class="meta">{{ house.address }}</p>
+            <p class="text-black-50">
+              {{ house.description }}
+            </p>
+            <p class="text-black-50">
+              <a href="{% url 'apply' house.id %}" class="btn btn-secondary">Make Reservation</a>
+              {% if messages %}
+                  <div class="alert-container">
+                      {% for message in messages %}
+                          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                              {{ message }}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                      {% endfor %}
+                  </div>
+              {% endif %}
+            </p>
+            <div class="d-block agent-box p-5">
+              <div class="img mb-4">
+              </div>
+              <div class="text">
+                <p><h3> House poster: </h3></p>
+                <h2 class="mb-0">{{ house.owner.name }}</h2>
+                   <br><br>
+<!--                <div class="meta mb-3">Real Estate</div>-->
+<!--                <p>-->
+<!--                  Lorem ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                  Ratione laborum quo quos omnis sed magnam id ducimus saepe-->
+<!--                </p>-->
+                <ul class="list-unstyled social dark-hover d-flex">
+                  <li class="me-1">
+                    <a href="tell:{{ house.phone}}"><span class="icon-phone"></span></a>
+                  </li>
+                  <li class="me-1">
+                    <a href="mailto:{{ house.mail }}"><span class="icon-envelope"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Contact</h3>
+              <ul class="list-unstyled links">
+                <li><a href="tel://2349124050714">+2349124050714</a></li>
+                <li>
+                  <a href="mailto:tkpstay@gmail.com">tkpstay@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>The Company</h3>
+              <ul class="list-unstyled float-start links">
+                <li><a href="#">Site map </a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Agent Admin</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Affiliate</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>International sites</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Venezuela</a></li>
+                <li><a href="#">China </a></li>
+                <li><a href="#">Argentina</a></li>
+                <li><a href="#">Singapore</a></li>
+                <li><a href="#">Philippines</a></li>
+              </ul>
+
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.site-footer -->
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

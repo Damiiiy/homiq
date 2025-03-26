@@ -1,0 +1,438 @@
+<!--{% load static %}-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="utf-8" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--    <meta name="author" content="Untree.co" />-->
+<!--    <link rel="shortcut icon" href="favicon.png" />-->
+
+<!--    <meta name="description" content="" />-->
+<!--    <meta name="keywords" content="bootstrap, bootstrap5" />-->
+
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com" />-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>-->
+
+<!--    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css'%}" />-->
+<!--    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />-->
+
+<!--    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />-->
+<!--    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />-->
+
+<!--    <link rel="stylesheet" href="{% static 'css/aos.css' %}" />-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}" />-->
+
+<!--    <title>-->
+
+<!--    </title>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <div class="site-mobile-menu site-navbar-target">-->
+<!--    <div class="site-mobile-menu-header">-->
+<!--      <div class="site-mobile-menu-close">-->
+<!--        <span class="icofont-close js-menu-toggle"></span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="site-mobile-menu-body"></div>-->
+<!--  </div>-->
+<!--  <nav class="site-nav">-->
+<!--    <div class="container">-->
+<!--      <div class="menu-bg-wrap">-->
+<!--        <div class="site-navigation">-->
+<!--            <a href="/" class="logo m-0 float-start">-->
+<!--              <img class="img" src="{% static 'images/tkp.jpg' %}" style="width:80px; height:55px; mix-blend-mode:multiply;" >-->
+<!--            </a>-->
+
+<!--          <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">-->
+<!--            <li class="active"><a href="/">Home</a></li>-->
+<!--              <li>-->
+<!--                <a href="{% url 'logout' %}"> Logout</a>-->
+<!--              </li>-->
+<!--           </ul>-->
+<!--          <a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"-->
+<!--              data-toggle="collapse"-->
+<!--              data-target="#main-navbar">-->
+<!--              <span></span>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--&lt;!&ndash;    <section class=" section ">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="container p-5">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="row d-flex justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="col col-lg-9 col-xl-8">&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="mt-5 d-flex flex-column" style="width: 150px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="{% static 'images/dummy-dp.jpeg' %}"&ndash;&gt;-->
+<!--&lt;!&ndash;                      alt="profile" class="img-fluid img-thumbnail mt-4 mb-2 rounded-circle"&ndash;&gt;-->
+<!--&lt;!&ndash;                      style="width: 150px; z-index: 1">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" class="btn text-white btn-sm btn-secondary btn-outline-secondary " data-mdb-ripple-color="dark" style="z-index: 1;">&ndash;&gt;-->
+<!--&lt;!&ndash;                      Post A House&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;                  <button class="btn btn-primary" type="button" >&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    Post A House&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </button>&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                  <div class="ms-3" style="margin-top: 130px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h5>{{ user.name }}</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p>New York</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="p-4 text-black bg-body-tertiary">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="d-flex justify-content-end text-center text-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p class="mb-1 h5">253</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p class="small text-muted mb-0">Photos</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                 &lt;!&ndash; Collapsible Form &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="collapse mt-3" id="collapseForm">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <form action="{% url 'post-house' %}" method="POST" enctype="multipart/form-data">&ndash;&gt;-->
+<!--&lt;!&ndash;                            {% csrf_token %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Name Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.name.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.name }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.name.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.name.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Email Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.mail.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.mail }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.mail.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.mail.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Phone Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.phone.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.phone }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.phone.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.phone.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Address Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.address.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.address }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.address.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.address.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Bedrooms Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.bedrooms.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.bedrooms }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.bedrooms.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.bedrooms.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Bathrooms Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.bathrooms.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.bathrooms }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.bathrooms.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.bathrooms.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Price Field &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.price.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.price }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.price.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.price.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; House Type &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.type.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.type }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.type.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.type.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Description &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.description.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.description }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.description.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.description.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Image Upload &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.image.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.image }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.image.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.image.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            &lt;!&ndash; Availability Checkbox &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-check">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.is_available }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{ form.is_available.label_tag }}&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% if form.is_available.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="text-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% for error in form.is_available.errors %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <small>{{ error }}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <button type="submit" class="btn btn-success">Submit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;                        <form action="{% url 'post-house' %}" method="POST">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            {% csrf_token %}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            <div class="form-group">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                {{ form.as_p }}&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;                            </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            <button type="submit" class="btn btn-success">Submit</button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        </form>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </section>&ndash;&gt;-->
+<!-- <section class="section">-->
+<!--  <div class="container p-5">-->
+<!--    <div class="row justify-content-center">-->
+<!--      <div class="col-lg-10 col-xl-8">-->
+<!--        <div class="card">-->
+<!--          <div class="rounded-top text-white d-flex flex-row align-items-end" style="background-color: #000; height: 250px;">-->
+<!--            <div class="ms-4 d-flex flex-column align-items-center" style="width: 150px;">-->
+<!--              <img src="{% static 'images/dummy-dp.jpeg' %}" alt="profile" class="img-fluid img-thumbnail mt-4 mb-2 rounded-circle" style="width: 150px; z-index: 1;">-->
+<!--              <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" class="btn btn-sm btn-secondary text-white" style="z-index: 1;">-->
+<!--                Post A House-->
+<!--              </a>-->
+<!--            </div>-->
+
+<!--            <div class="ms-4 mb-3 text-white">-->
+<!--              <h5>{{ user.name }}</h5>-->
+<!--              <p>New York</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="p-4 text-black bg-body-tertiary">-->
+<!--            <div class="d-flex justify-content-end text-center text-body">-->
+<!--              <div>-->
+<!--                <p class="mb-1 h5">253</p>-->
+<!--                <p class="small text-muted mb-0">Photos</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          &lt;!&ndash; Collapsible Form &ndash;&gt;-->
+<!--          <div class="collapse mt-3" id="collapseForm">-->
+<!--            <div class="card card-body">-->
+<!--              <form action="{% url 'post-house' %}" method="POST" enctype="multipart/form-data">-->
+<!--                {% csrf_token %}-->
+
+<!--                &lt;!&ndash; Form Fields &ndash;&gt;-->
+<!--                <div class="row">-->
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">{{ form.name.label_tag }} {{ form.name }}</div>-->
+<!--                    <div class="form-group">{{ form.mail.label_tag }} {{ form.mail }}</div>-->
+<!--                    <div class="form-group">{{ form.phone.label_tag }} {{ form.phone }}</div>-->
+<!--                    <div class="form-group">{{ form.address.label_tag }} {{ form.address }}</div>-->
+<!--                    <div class="form-group">{{ form.bedrooms.label_tag }} {{ form.bedrooms }}</div>-->
+<!--                    <div class="form-group">{{ form.bathrooms.label_tag }} {{ form.bathrooms }}</div>-->
+<!--                  </div>-->
+
+<!--                  <div class="col-md-6">-->
+<!--                    <div class="form-group">{{ form.price.label_tag }} {{ form.price }}</div>-->
+<!--                    <div class="form-group">{{ form.type.label_tag }} {{ form.type }}</div>-->
+<!--                    <div class="form-group">{{ form.description.label_tag }} {{ form.description }}</div>-->
+<!--                    <div class="form-group">{{ form.image.label_tag }} {{ form.image }}</div>-->
+<!--                    <div class="form-check">{{ form.is_available }} {{ form.is_available.label_tag }}</div>-->
+<!--                  </div>-->
+<!--                </div>-->
+
+<!--                <button type="submit" class="btn btn-success mt-3">Submit</button>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </div> &lt;!&ndash; End Collapsible Form &ndash;&gt;-->
+
+<!--        </div> &lt;!&ndash; End Card &ndash;&gt;-->
+<!--      </div> &lt;!&ndash; End Col &ndash;&gt;-->
+<!--    </div> &lt;!&ndash; End Row &ndash;&gt;-->
+<!--  </div> &lt;!&ndash; End Container &ndash;&gt;-->
+<!--</section>-->
+<!--<div class="p-2">-->
+<!--    <h2 > My houses</h2>-->
+
+<!--</div>-->
+<!--      <hr>-->
+<!--      <section class=" ">-->
+<!--          <div class="container">-->
+<!--              <div class="section section-properties">-->
+<!--                  <div class="container">-->
+<!--                    <div class="row">-->
+<!--                      {% for house in page_obj %}-->
+<!--                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">-->
+<!--                          <div class="property-item mb-30">-->
+<!--                            <a href="" class="img">-->
+<!--                              <img src="{{ house.image.url }}" alt="Image" class="img-fluid" />-->
+<!--                            </a>-->
+
+<!--                            <div class="property-content">-->
+<!--                              <div class="price mb-2"><span>₦{{ house.price }}</span></div>-->
+<!--                              <div>-->
+<!--                                <span class="d-block mb-2 text-black-50">{{ house.address }}</span>-->
+<!--                                <span class="city d-block mb-3">{{ house.location }}</span>-->
+
+<!--                                <div class="specs d-flex mb-4">-->
+<!--                                  <span class="d-block d-flex align-items-center me-3">-->
+<!--                                    <span class="icon-bed me-2"></span>-->
+<!--                                    <span class="caption">{{ house.bedrooms }}</span>-->
+<!--                                  </span>-->
+<!--                                  <span class="d-block d-flex align-items-center">-->
+<!--                                    <span class="icon-bath me-2"></span>-->
+<!--                                    <span class="caption">{{ house.bathrooms }}</span>-->
+<!--                                  </span>-->
+<!--                                </div>-->
+
+<!--                                <a href="property-single.html" class="btn btn-primary py-2 px-3">-->
+<!--                                  See details-->
+<!--                                </a>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      {% endfor %}-->
+<!--                    </div> &lt;!&ndash; .row &ndash;&gt;-->
+
+<!--                    &lt;!&ndash; Pagination &ndash;&gt;-->
+<!--                    <div class="pagination text-center mt-4">-->
+<!--                      {% if page_obj.has_previous %}-->
+<!--                        <a href="?page=1" class="btn btn-outline-primary">&laquo; First</a>-->
+<!--                        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-primary">Previous</a>-->
+<!--                      {% endif %}-->
+
+<!--                      <span class="btn btn-primary disabled">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>-->
+
+<!--                      {% if page_obj.has_next %}-->
+<!--                        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-primary">Next</a>-->
+<!--                        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary">Last &raquo;</a>-->
+<!--                      {% endif %}-->
+<!--                    </div>-->
+<!--                  </div> &lt;!&ndash; .container &ndash;&gt;-->
+<!--                </div> &lt;!&ndash; .section-properties &ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div class="row d-flex justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col col-lg-9 col-xl-8">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="d-flex justify-content-between align-items-center  text-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="lead fw-normal mb-0">My Houses</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="row g-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col mb-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp" alt="image 1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        class="w-100 rounded-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col mb-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp" alt="image 1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        class="w-100 rounded-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="row g-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp" alt="image 1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        class="w-100 rounded-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp" alt="image 1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        class="w-100 rounded-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+<!--  </main>-->
+<!--</body>-->
+<!-- <div id="overlayer"></div>-->
+<!--    <div class="loader">-->
+<!--      <div class="spinner-border" role="status">-->
+<!--        <span class="visually-hidden">Loading...</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>-->
+<!--    <script src="{% static 'js/tiny-slider.js' %}"></script>-->
+<!--    <script src="{% static 'js/aos.js' %}"></script>-->
+<!--    <script src="{% static 'js/navbar.js' %}"></script>-->
+<!--    <script src="{% static 'js/counter.js' %}"></script>-->
+<!--    <script src="{% static 'js/custom.js' %}"></script>-->
+<!--</html>-->
