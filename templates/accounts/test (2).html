@@ -1,0 +1,84 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Untree.co" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap5" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css'%}" />
+  <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <script src="https://cdn.jsdelivr.net/npm/xion.js/dist/xion.min.js"></script>
+
+  <title>Register</title>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+    .card {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .button {
+      background-color: #6d3215;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button:hover {
+      background-color: #a78472;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h2>Sign Up</h2>
+
+  <form method="POST" action="{% url 'reg-auth' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Account</button>
+</form>
+
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+  </div>
+</div>
+
+
+
+</body>
+</html>

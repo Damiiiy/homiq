@@ -1,25 +1,18 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-
 from property.models import House
 from .forms import *
 from .models import CustomUser
-
 import random
 from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as lg
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
-
-# Create your views here.
 
 
 # login in views
-
-
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('profile')  # Redirect if already logged in
@@ -80,7 +73,7 @@ def login_auth(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 
-# this is for the registration aspect
+
 def register(request):
     form = RegistrationForm()
 
@@ -102,13 +95,13 @@ def registration_auth(request):
                 new_user.set_password(form.cleaned_data['password1'])
                 new_user.save()
                 # print(form.cleaned_data['name'])
-                # user = form.save(commit=False)  # Create user instance without saving immediately
+                # user = form.save(commit=False)
                 # user.save()  # Save user instance
                 messages.success(request, 'Registration Completed Successfully!')
-                return redirect('register')  # Redirect to prevent form resubmission
+                return redirect('register')
             except ValidationError as e:
                 for error in e.messages:
-                    messages.error(request, error)  # Display Django's built-in validation errors
+                    messages.error(request, error)
         else:
             # Loop through each field and add specific error messages
             for field, errors in form.errors.items():

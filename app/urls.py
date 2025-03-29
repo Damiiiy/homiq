@@ -12,6 +12,7 @@ urlpatterns = [
     # registration unit
     path('register/', register, name='register'),
     path('reg-auth/', registration_auth, name='reg-auth'),
+    path('link_wallet_address', link_wallet_address, name='link_wallet_address'),
 
 
     # profile unit
