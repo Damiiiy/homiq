@@ -30,7 +30,7 @@ def create_house(request):
         # print( form )
         if form.is_valid():
             house = form.save(commit=False)
-            house.owner = request.user  # This ensures the owner is set if not passed in the form
+            house.owner = request.user
             house.save()
             messages.success(request, 'House created successfully!')
             return redirect('profile')
@@ -45,25 +45,19 @@ def view_house(request, id):
     return render(request, 'property/property-single.html', {'house': house})
 
 
-@login_required(login_url='login')  # Replace 'login' with your login URL name
+@login_required(login_url='login')
 def apply(request, house_id):
-    # Get the house the user is applying for
+
     house = get_object_or_404(House, id=house_id)
-
-    # Get the current logged-in user (no need to pass the user_id)
     user = request.user
-
-    # Check if the user has already applied for this house
     if AppliedHouses.objects.filter(house=house, user=user).exists():
         messages.warning(request, "You have already applied for this house.")
-        return redirect('view-house', id=house_id)  # Redirect to the house detail page
+        return redirect('view-house', id=house_id)
 
-    # If not applied, create a new application
     AppliedHouses.objects.create(house=house, user=user)
-
     # Send a success message
     messages.success(request, "You have successfully applied for this house!")
-    return redirect('view-house', id=house_id)  # Redirect to the house detail page
+    return redirect('view-house', id=house_id)
 
 
 
@@ -103,8 +97,8 @@ def search_houses(request):
     return JsonResponse(results, safe=False)
 
 def all_houses(request):
-    houses = list(House.objects.all())  # Convert queryset to list for shuffling
-    random.shuffle(houses)  # Shuffle the list to display random houses
+    houses = list(House.objects.all())
+    random.shuffle(houses) 
     random_houses = houses[:5]
     paginator = Paginator(houses, 9)  # Show 9 houses per page
     page_number = request.GET.get('page')

@@ -46,3 +46,5 @@ class AppliedHouses(models.Model):
 
     def __str__(self):
         return  f"{self.user.name}, applied on {self.applied_date}"
+
+
