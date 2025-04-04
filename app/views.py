@@ -1,5 +1,7 @@
+import hashlib
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
+from app.backends import EmailAuthBackend
 from property.models import House
 from .forms import *
 from .models import CustomUser
@@ -10,7 +12,13 @@ from django.contrib.auth import authenticate, login as auth_login, logout as lg
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+import requests
+from django.conf import settings
 
+def generate_deterministic_private_key(email, secret_key):
+    """Generate a deterministic private key based on email and server secret"""
+    combined = f"{email}{secret_key}".encode('utf-8')
+    return hashlib.sha256(combined).hexdigest()
 
 # login in views
 def login_view(request):
@@ -85,34 +93,53 @@ def registration_auth(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             try:
+                # Generate private key
+                private_key = generate_deterministic_private_key(
+                    form.cleaned_data['email'], 
+                    settings.SECRET_KEY
+                )
+
+                # Call Xion wallet service
+                response = requests.post(
+                    'https://xionwallet-8inr.onrender.com/generate-wallet-service',
+                    json={'privateKey': private_key},
+                    headers={'Content-Type': 'application/json'}
+                )
+
+                print(response.status_code)
+
+                if response.status_code != 200:
+                    raise ValidationError('Failed to generate wallet address')
+
+                wallet_data = response.json()
+                
+                # Create user with wallet address
                 new_user = CustomUser(
                     email=form.cleaned_data['email'],
                     name=form.cleaned_data['name'],
                     user_type=form.cleaned_data['user_type'],
-                    password=form.cleaned_data['password1']
+                    wallet_address=wallet_data.get('address')  # Save the wallet address
                 )
-                 # Hash the password before saving
                 new_user.set_password(form.cleaned_data['password1'])
                 new_user.save()
-                # print(form.cleaned_data['name'])
-                # user = form.save(commit=False)
-                # user.save()  # Save user instance
+
                 messages.success(request, 'Registration Completed Successfully!')
                 return redirect('register')
             except ValidationError as e:
                 for error in e.messages:
                     messages.error(request, error)
+            except requests.RequestException as e:
+                messages.error(request, 'Failed to create wallet. Please try again.')
         else:
-            # Loop through each field and add specific error messages
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f"{field.capitalize()}: {error}")
-
 
     else:
         form = RegistrationForm()
 
     return render(request, 'accounts/register.html', {'form': form})
+
 
 
 def logout(request):
