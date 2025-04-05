@@ -176,7 +176,7 @@
               <div class="property-slider">
                 {% for house in house %}
                 <div class="property-item">
-                  <a href="" class="img">
+                  <a href="{% url 'view-house' house.id %}" class="img">
                     <img src="{{ house.image.url }}" alt="Image" class="img-fluid" />
                   </a>
 
