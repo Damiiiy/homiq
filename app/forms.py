@@ -5,7 +5,7 @@ from .models import CustomUser
 
 
 
-choices_of_user = (("seeker", "Home Seeker"),("owner", "House Owner"))
+choices_of_user = (("seeker", "Buyer"),("owner", "Seller"))
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(
         label="Full Name",

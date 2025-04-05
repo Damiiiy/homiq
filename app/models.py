@@ -29,8 +29,8 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     USER_TYPE_CHOICES = (
         ("admin", "Admin"),
-        ("owner", "House Owner"),
-        ("seeker", "House Seeker"),
+        ("owner", "Seller"),
+        ("seeker", "Buyer"),
     )
 
     email = models.EmailField(unique=True)

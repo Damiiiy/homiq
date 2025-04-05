@@ -42,15 +42,22 @@
         <div class="menu-bg-wrap">
           <div class="site-navigation">
             <a href="/" class="logo m-0 float-start">
-              <img class="img" src="{% static 'images/tkp.jpg' %}" style="width:80px; height:55px; mix-blend-mode:multiply;" >
+                            <p class="text-light p-1 m-1"><b>Homiq</b></p>
+
+<!--              <img class="img" src="{% static 'images/tkp.jpg' %}" style="width:80px; height:55px; mix-blend-mode:multiply;" >-->
             </a>
             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
               <li class="active"><a href="/">Home</a></li>
+              <li class="">
+                <a href="{% url 'properties'%}">Properties</a>
+              </li>
               {% if not user.is_authenticated %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'register' %}">Sign up</a></li>
-              {% elif user.user_type == "owner" %}
+              {% elif user.user_type == "owner"  %}
                   <li><a href="{% url 'profile'%}">My Profile </a></li>
+              {% elif user.user_type == "seeker" %}
+                  <li><a href="{% url 'buyer_profile'%}">My Profile </a></li>
               {% else %}
                 <li><a href="{% url 'logout'%}">Logout</a></li>
               {% endif %}
@@ -206,53 +213,53 @@
     </div>
 
    <div class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>Contact</h3>
-              <ul class="list-unstyled links">
-                <li><a href="tel://2349124050714">+2349124050714</a></li>
-                <li>
-                  <a href="mailto:tkpstay@gmail.com">tkpstay@gmail.com</a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>The Company</h3>
-              <ul class="list-unstyled float-start links">
-                <li><a href="#">Site map </a></li>
-                <li><a href="#">Legal</a></li>
-                <li><a href="#">Agent Admin</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Affiliate</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>International sites</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Venezuela</a></li>
-                <li><a href="#">China </a></li>
-                <li><a href="#">Argentina</a></li>
-                <li><a href="#">Singapore</a></li>
-                <li><a href="#">Philippines</a></li>
-              </ul>
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-4">-->
+<!--            <div class="widget">-->
+<!--              <h3>Contact</h3>-->
+<!--              <ul class="list-unstyled links">-->
+<!--                <li><a href="tel://2349124050714">+2349124050714</a></li>-->
+<!--                <li>-->
+<!--                  <a href="mailto:tkpstay@gmail.com">tkpstay@gmail.com</a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+<!--          <div class="col-lg-4">-->
+<!--            <div class="widget">-->
+<!--              <h3>The Company</h3>-->
+<!--              <ul class="list-unstyled float-start links">-->
+<!--                <li><a href="#">Site map </a></li>-->
+<!--                <li><a href="#">Legal</a></li>-->
+<!--                <li><a href="#">Agent Admin</a></li>-->
+<!--                <li><a href="#">Careers</a></li>-->
+<!--                <li><a href="#">Affiliate</a></li>-->
+<!--                <li><a href="#">Privacy Policy</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+<!--          <div class="col-lg-4">-->
+<!--            <div class="widget">-->
+<!--              <h3>International sites</h3>-->
+<!--              <ul class="list-unstyled links">-->
+<!--                <li><a href="#">Venezuela</a></li>-->
+<!--                <li><a href="#">China </a></li>-->
+<!--                <li><a href="#">Argentina</a></li>-->
+<!--                <li><a href="#">Singapore</a></li>-->
+<!--                <li><a href="#">Philippines</a></li>-->
+<!--              </ul>-->
 
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
-        </div>
-        <!-- /.row -->
+<!--            </div>-->
+<!--            &lt;!&ndash; /.widget &ndash;&gt;-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.row &ndash;&gt;-->
 
         <div class="row mt-5">
           <div class="col-12 text-center">

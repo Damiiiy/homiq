@@ -16,5 +16,8 @@ urlpatterns = [
 
 
     # profile unit
-    path('profile/', userprofile, name='profile')
+    path('profile/', userprofile, name='profile'),
+    path('user-profile/', buyer_userprofile, name='buyer_profile'),
+
+    path('coming-soon/', coming_soon, name='coming_soon')
 ]

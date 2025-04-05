@@ -2,7 +2,7 @@ import hashlib
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from app.backends import EmailAuthBackend
-from property.models import House
+from property.models import House, AppliedHouses
 from .forms import *
 from .models import CustomUser
 import random
@@ -83,6 +83,8 @@ def login_auth(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     form = RegistrationForm()
 
     return render(request, 'accounts/register.html', {'form': form})
@@ -159,3 +161,21 @@ def userprofile(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'accounts/profile.html', {'user': user, 'form':form,'page_obj': page_obj, 'houses': random_houses})
+
+
+def buyer_userprofile(request):
+    user = request.user
+
+    reservations = list(AppliedHouses.objects.filter(user=user))  # Convert queryset to list for shuffling
+    random.shuffle(reservations)  # Shuffle the list to display random houses
+    random_houses = reservations[:5]
+    paginator = Paginator(reservations, 9)  # Show 9 houses per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'accounts/profile_buyer.html', {'user': user, 'page_obj': page_obj, 'houses': random_houses})
+
+
+
+def coming_soon(request):
+    return render(request, 'accounts/coming_soon.html')
